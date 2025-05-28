@@ -1,1 +1,1 @@
-this project is a prototype of my resturant ordering system. kindly make sure that node.js is being installed. as the file is being not big please use this link to view: https://drive.google.com/file/d/1gYknJRYEaXZMWArwSmWt7N90Dm_i7-_K/view?usp=drive_link
+this project is a prototype of my resturant ordering system. kindly make sure that node.js is being installed. as the file is being too big please use this link to view or download: https://drive.google.com/file/d/1gYknJRYEaXZMWArwSmWt7N90Dm_i7-_K/view?usp=drive_link
