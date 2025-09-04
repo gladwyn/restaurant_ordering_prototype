@@ -1,7 +1,7 @@
 # Resturant Ordering Website
 
 ## Tools/languages used:
-c#,  HTML , css , jquery , Model-View-Controller (MVC) and microsoftSQL
+c#,  HTML , css , jquery , MySQL , JS
 
 ## details
 This project is a prototype of my restaurant ordering system.
