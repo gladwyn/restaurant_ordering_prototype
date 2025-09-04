@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/bryanfoodorderdbserver/databases/BryanFoodOrder",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:project_razorpageContext",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

@@ -1,0 +1,119 @@
+﻿@page
+@model project_razorpage.CreateOrderModel
+
+@{
+    ViewData["Title"] = "order";
+    var greetings = "welcome";
+    if (DateTime.Now.Hour > 12)
+    {
+        greetings = " Good Afternoon, feel free to order anything";
+    }
+    else
+    {
+        greetings = " Good Morning !, feel free to order anything";
+    }
+}
+<div class="text-center">
+    <h2 class="display-4">@greetings</h2>
+    <p> <a href="~/User/Create">Register</a> | <a href="Signin">Sign In</a></p>
+</div>
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Order.Name" class="control-label"></label>
+        <input asp-for="Order.Name" class="form-control" />
+        <span asp-validation-for="Order.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.Address" class="control-label"></label>
+        <input asp-for="Order.Address" class="form-control" />
+        <span asp-validation-for="Order.Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.DeliveryDate" class="control-label"></label>
+        <input type="datetime-local" asp-for="Order.DeliveryDate" class="form-control" />
+        <span asp-validation-for="Order.DeliveryDate" class="text-danger"></span>
+    </div>
+    <h3>choose what you want to eat /drink</h3>
+    <table class="table">
+
+        <tbody>
+            <tr>
+                <td>
+                    <img src="~/images/popcorn_chicken.jpg" alt="popcorn chicken" />
+                </td>
+                <td>
+                    <input type="radio" asp-for="Order.Item" class="control-label" value="popcorn chicken" />popcorn chicken<br />
+                    <label>amount:</label>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50" class="slider form-control" name="chicksize" id="myRange" asp-for="Order.Qty">
+                    </div>
+
+                    <label for="chicken sizes" name="sizes">Choose your sizes:</label>
+                    <select asp-for="Order.Size">
+                        @foreach (var sizes in Model.Chickenpopcornsize)
+                        {
+                            <option value=@sizes> @sizes </option>
+                        }
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table">
+
+        <tbody>
+            <tr>
+                <td>
+                    <img src="~/images/pizza.jpg" alt="pizza" />
+                </td>
+                <td>
+                    <input type="radio" asp-for="Order.Item" value="Pizza" /> Pizza<br />
+                    <label>amount:</label>
+                    <p>
+                        <div class="slidecontainer">
+                            <input type="range" asp-for="Order.Qty" min="1" max="100" value="50" class="slider form-control" id="myRange">
+                        </div>
+                    </p>
+                    <label for="cars">Choose your sizes:</label>
+
+                    <select asp-for="Order.Size">
+                        @foreach (var sizes in Model.Chickenpopcornsize)
+                        {
+                            <option value=@sizes> @sizes </option>
+                        }
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h3> others </h3>
+    <div class="form-group">
+        <label asp-for="Order.Cutlery"></label>
+        <input asp-for="Order.Cutlery" type="checkbox" />
+
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Order.Request" class="control-label"></label>
+        <input asp-for="Order.Request" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+<h1>carts/recipts</h1>
+<table class="table">
+    <thead>
+        <tr><th>Drink</th><th>amount</th><th>Price</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Popcorn chicken</td><td>1</td><td>$5.00</td></tr>
+        <tr><td>Total</td><td></td><td>$5.00</td></tr>
+    </tbody>
+</table>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
